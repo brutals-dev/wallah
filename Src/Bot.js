@@ -244,17 +244,18 @@ async function createTicket(interaction, application, panel, client) {
       allowedMentions: { users: [member.id] }
     });
 
-    await Application.updateOne(
-      { _id: application._id, status: "pending" },
-      {
-        $set: {
-          status: "approved",
-          reviewerId: interaction.user.id,
-          reviewedAt: new Date(),
-          ticketChannelId: channel.id
-        }
-      }
-    );
+await Application.updateOne(
+  { _id: application._id, status: "failed" },
+  {
+    $set: {
+      status: "approved",
+      reviewerId: interaction.user.id,
+      reviewedAt: new Date(),
+      ticketChannelId: channel.id,
+      error: null
+    }
+  }
+);
 
     await audit(guild.id, interaction.user.id, "ticket_created", String(ticket._id), {
       channelId: channel.id
