@@ -1,0 +1,31 @@
+{
+  "name": "avenged-ticket-bot",
+  "version": "1.0.0",
+  "private": true,
+  "description": "AVENGED custom Discord ticket bot and dashboard",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "check": "node --check src/index.js && node --check src/bot.js && node --check src/dashboard.js && node --check src/database.js && node --check src/register-commands.js && node --check src/hash-password.js",
+    "commands:register": "node src/register-commands.js",
+    "password:hash": "node src/hash-password.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.800.0",
+    "bcrypt": "^5.1.1",
+    "connect-mongo": "^5.1.0",
+    "discord.js": "^14.19.3",
+    "dotenv": "^16.4.7",
+    "ejs": "^3.1.10",
+    "express": "^4.21.2",
+    "express-rate-limit": "^7.5.0",
+    "express-session": "^1.18.1",
+    "helmet": "^8.1.0",
+    "mongoose": "^8.13.2",
+    "multer": "^2.0.0",
+    "nanoid": "^5.1.5"
+  }
+}
